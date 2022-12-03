@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar menu with submenus</title>
+    <script
+      src="https://kit.fontawesome.com/e9fe9a3381.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="menu">
+        <div class="item">
+          <a href=""><i class="fas fa-desktop"></i>Dashboard</a>
+        </div>
+        <div class="item">
+          <a class="sub-btn"
+            ><i class="fas fa-table"></i>Table
+            <i class="fas fa-angle-right dropdown"></i
+          ></a>
+          <div class="sub-menu">
+            <a href="" class="sub-item">Sub Item 01</a>
+            <a href="" class="sub-item">Sub Item 02</a>
+            <a href="" class="sub-item">Sub Item 03</a>
+          </div>
+        </div>
+        <div class="item">
+          <a href=""><i class="fas fa-th"></i>Forms</a>
+        </div>
+        <div class="item">
+          <a class="sub-btn"
+            ><i class="fas fa-cogs"></i>Settings
+            <i class="fas fa-angle-right dropdown"></i
+          ></a>
+          <div class="sub-menu">
+            <a href="" class="sub-item">Sub Item 01</a>
+            <a href="" class="sub-item">Sub Item 02</a>
+            <a href="" class="sub-item">Sub Item 03</a>
+          </div>
+        </div>
+        <div class="item">
+          <a href=""><i class="fas fa-info-circle"></i>About</a>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function (e) {
+        const subBtns = document.getElementsByClassName('sub-btn');
+        Array.from(subBtns).forEach(subBtn => {
+          subBtn.addEventListener('click', function (e) {
+            const dropdown = subBtn.querySelector('.dropdown');
+            subBtn.nextElementSibling.classList.toggle('active');
+
+            // submenu.classList.toggle('active');
+            dropdown.classList.toggle('rotate');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
